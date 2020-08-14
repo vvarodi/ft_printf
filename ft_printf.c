@@ -6,17 +6,27 @@
 /*   By: vvarodi <vvarodi@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 00:03:38 by vvarodi           #+#    #+#             */
-/*   Updated: 2020/08/14 02:01:11 by vvarodi          ###   ########.fr       */
+/*   Updated: 2020/08/14 21:03:09 by vvarodi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*placeholders(t_flags *f, char *str)
+char	*placeholders(t_buffer *b, t_flags *f, char *str)
 {
 	int	i;
 
 	i = 0;
+	if (str[i] == '*')
+	{
+		f->width = va_arg(b->args, int);
+		i++;
+		if (f->width < 0)
+		{
+			f->width *= -1;
+			f->b_left_aligned = 1;
+		}
+	}
 	if (str[i] == '0')
 	{
 		f->b_zero_padding = 1;
@@ -36,10 +46,18 @@ char	*placeholders(t_flags *f, char *str)
 	{
 		i++;
 		f->b_precision = 1;
-		while (str[i] >= '0' && str[i] <= '9')
+		if (str[i] == '*')
 		{
-			f->precision = f->precision * 10 + str[i] - '0';
+			f->precision = va_arg(b->args, int);
 			i++;
+		}
+		else
+		{
+			while (str[i] >= '0' && str[i] <= '9')
+			{	
+				f->precision = f->precision * 10 + str[i] - '0';
+				i++;
+			}
 		}
 	}
 	return (str + i);
@@ -48,7 +66,7 @@ char	*placeholders(t_flags *f, char *str)
 char	*read_types(t_buffer *b, t_flags *f, char *str)
 {
 	str++;
-	str = placeholders(f, str);
+	str = placeholders(b, f, str);
 	if (*str == '%' || *str == 'c')
 		str = type_c(b, f, *str == 'c' ? va_arg(b->args, int) : '%', str) + 1;
 	else if (*str == 's')
