@@ -6,7 +6,7 @@
 /*   By: vvarodi <vvarodi@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 00:03:38 by vvarodi           #+#    #+#             */
-/*   Updated: 2020/08/14 21:03:09 by vvarodi          ###   ########.fr       */
+/*   Updated: 2020/08/14 23:12:09 by vvarodi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,12 @@ char	*placeholders(t_buffer *b, t_flags *f, char *str)
 			f->precision = va_arg(b->args, int);
 			i++;
 		}
-		else
-		{
-			while (str[i] >= '0' && str[i] <= '9')
-			{	
-				f->precision = f->precision * 10 + str[i] - '0';
-				i++;
-			}
+		if (str[i] == 's' || str[i] == '0')
+			f->b_precision = 2;
+		while (str[i] >= '0' && str[i] <= '9')
+		{	
+			f->precision = f->precision * 10 + str[i] - '0';
+			i++;
 		}
 	}
 	return (str + i);
