@@ -6,7 +6,7 @@
 #    By: vvarodi <vvarodi@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/13 22:15:55 by vvarodi           #+#    #+#              #
-#    Updated: 2020/08/13 22:16:19 by vvarodi          ###   ########.fr        #
+#    Updated: 2020/08/14 00:53:55 by vvarodi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS	= ft_printf.c
+SRCS	= ft_printf.c ft_printf_utils.c ft_buffer.c type_s.c type_c.c 
 
 OBJS	= ${SRCS:.c=.o}
 
@@ -27,7 +27,7 @@ $(NAME) : ${OBJS}
 all : ${NAME}
 
 debug:
-		$(CC) -g -o ft_printf $(SRCS) 
+	$(CC) -g -o ft_printf $(SRCS) 
 clean :
 	rm -f ${OBJS}
 
