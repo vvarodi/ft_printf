@@ -6,7 +6,7 @@
 /*   By: vvarodi <vvarodi@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 23:50:25 by vvarodi           #+#    #+#             */
-/*   Updated: 2020/08/14 20:45:48 by vvarodi          ###   ########.fr       */
+/*   Updated: 2020/08/15 20:25:05 by vvarodi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,13 @@ typedef struct	s_flags
 int				ft_printf(const char *s, ...);
 
 char			*type_s(t_buffer *b, t_flags *f, char *print, char *str);
-char			*type_s_lef(t_buffer *b, t_flags *f, char *print, char *str);
+char			*type_s_left(t_buffer *b, t_flags *f, char *print, char *str);
 char			*type_c(t_buffer *b, t_flags *f, int c, char *str);
 
-char			*read_types(t_buffer *b, t_flags *f, char *str);
+int 			is_type(char c);
+void			width_precision(t_buffer *b, t_flags *f, char *str, int *i);
+void			read_flags(t_buffer *b, t_flags *f, char *str, int *i);
+char			*read_format(t_buffer *b, t_flags *f, char *str);
 char			*placeholders(t_buffer *b, t_flags *f, char *str);
 
 void			write_and_clear(t_buffer *b);
