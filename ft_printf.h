@@ -6,7 +6,7 @@
 /*   By: vvarodi <vvarodi@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 23:50:25 by vvarodi           #+#    #+#             */
-/*   Updated: 2020/08/15 20:25:05 by vvarodi          ###   ########.fr       */
+/*   Updated: 2020/08/15 20:38:56 by vvarodi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char			*type_s(t_buffer *b, t_flags *f, char *print, char *str);
 char			*type_s_left(t_buffer *b, t_flags *f, char *print, char *str);
 char			*type_c(t_buffer *b, t_flags *f, int c, char *str);
 
-int 			is_type(char c);
+int				is_type(char c);
 void			width_precision(t_buffer *b, t_flags *f, char *str, int *i);
 void			read_flags(t_buffer *b, t_flags *f, char *str, int *i);
 char			*read_format(t_buffer *b, t_flags *f, char *str);
@@ -54,8 +54,3 @@ void			ft_bzero(void *s, size_t n);
 size_t			ft_strlen(const char *s);
 
 #endif
-
-
-
-
-

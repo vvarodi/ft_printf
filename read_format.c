@@ -6,13 +6,13 @@
 /*   By: vvarodi <vvarodi@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/15 20:20:54 by vvarodi           #+#    #+#             */
-/*   Updated: 2020/08/15 20:29:12 by vvarodi          ###   ########.fr       */
+/*   Updated: 2020/08/15 20:37:42 by vvarodi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int is_type(char c)
+int		is_type(char c)
 {
 	if (c == '%' || c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i' ||
 		c == 'x' || c == 'X')
@@ -41,7 +41,7 @@ void	read_flags(t_buffer *b, t_flags *f, char *str, int *i)
 	{
 		f->b_left_aligned = 1;
 		(*i)++;
-	}	
+	}
 }
 
 void	width_precision(t_buffer *b, t_flags *f, char *str, int *i)
@@ -63,7 +63,7 @@ void	width_precision(t_buffer *b, t_flags *f, char *str, int *i)
 		if (str[*i] == 's' || str[*i] == '0')
 			f->b_precision = 2;
 		while (str[*i] >= '0' && str[*i] <= '9')
-		{	
+		{
 			f->precision = f->precision * 10 + str[*i] - '0';
 			(*i)++;
 		}
