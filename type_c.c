@@ -6,7 +6,7 @@
 /*   By: vvarodi <vvarodi@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 01:03:29 by vvarodi           #+#    #+#             */
-/*   Updated: 2020/08/14 01:48:50 by vvarodi          ###   ########.fr       */
+/*   Updated: 2020/08/15 18:44:56 by vvarodi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,20 @@
 
 char	*type_c(t_buffer *b, t_flags *f, int c, char *str)
 {
-	c == '%' ? add_to_buffer(b, f, '%') : add_to_buffer(b, f, c);
+	if (f->b_left_aligned)
+	{
+		add_to_buffer(b, f, c);
+		while (f->width > 0)
+			add_to_buffer(b, f, ' ');
+	}
+	else
+	{
+		while (f->width > 1)
+		{
+			f->b_zero_padding == 1 ? add_to_buffer(b, f, '0') :
+				add_to_buffer(b, f, ' ');
+		}
+		c == '%' ? add_to_buffer(b, f, '%') : add_to_buffer(b, f, c);
+	}
 	return (str);
 }
