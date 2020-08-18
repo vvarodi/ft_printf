@@ -6,7 +6,7 @@
 /*   By: vvarodi <vvarodi@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/18 00:00:58 by vvarodi           #+#    #+#             */
-/*   Updated: 2020/08/18 22:33:31 by vvarodi          ###   ########.fr       */
+/*   Updated: 2020/08/18 23:16:28 by vvarodi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char    *type_xX(t_buffer *b, t_flags *f, unsigned int c, char *str, char type)
 {
-	f->to_write = ft_puthexa_len(b, c);	
+	f->to_write = ft_puthexa_len(b,f, c);	
     if (f->b_left_aligned == 1 && f->b_zero_padding == 1)
 		f->b_zero_padding = 0;
     if ((f->b_preci == 1 || f->b_preci == 2) && f->precision >= f->to_write)

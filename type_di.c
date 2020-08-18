@@ -6,7 +6,7 @@
 /*   By: vvarodi <vvarodi@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 17:22:50 by vvarodi           #+#    #+#             */
-/*   Updated: 2020/08/18 22:32:24 by vvarodi          ###   ########.fr       */
+/*   Updated: 2020/08/18 23:15:45 by vvarodi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char    *type_di(t_buffer *b, t_flags *f, int num, char *str)
     neg = 0;
     one_minus = 0;
 	(num < 0) ? (neg = 1) : (neg = 0);
-	f->to_write = ft_putnbr_len(b, num) + neg;	
+	f->to_write = ft_putnbr_len(b,f, num) + neg;	
     if (f->b_left_aligned == 1 && f->b_zero_padding == 1)
 		f->b_zero_padding = 0;
 	if ((f->b_preci == 1 ||f->b_preci == 2) && f->precision >= f->to_write)

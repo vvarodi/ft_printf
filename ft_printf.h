@@ -6,7 +6,7 @@
 /*   By: vvarodi <vvarodi@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 23:50:25 by vvarodi           #+#    #+#             */
-/*   Updated: 2020/08/18 22:27:46 by vvarodi          ###   ########.fr       */
+/*   Updated: 2020/08/18 23:13:31 by vvarodi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,6 @@ typedef struct	s_buffer
 	char		buffer[BUFFER_SIZE];
 	int			buff_i;
 	int			written;
-	int			to_write;
-	int			num_len;
-	int			only_once;
 }				t_buffer;
 
 typedef struct	s_flags
@@ -53,9 +50,9 @@ char			*type_p(t_buffer *b, t_flags *f, unsigned long int num, char *str);
 char			*type_xX(t_buffer *b, t_flags *f, unsigned int c, char *str, char type);
 
 void    ft_putnbr(t_buffer *b, t_flags *f, long n);
-int     ft_putnbr_len(t_buffer *b,long n);
+int     ft_putnbr_len(t_buffer *b,t_flags *f, long n);
 void    ft_puthexa(t_buffer *b, t_flags *f, unsigned long x, char *type);
-int     ft_puthexa_len(t_buffer *b, unsigned long x);
+int     ft_puthexa_len(t_buffer *b,t_flags *f, unsigned long x);
 
 int				ft_is_type(char c);
 void			read_flags(t_buffer *b, t_flags *f, char *str, int *i);

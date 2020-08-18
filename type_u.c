@@ -6,7 +6,7 @@
 /*   By: vvarodi <vvarodi@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 17:19:58 by vvarodi           #+#    #+#             */
-/*   Updated: 2020/08/18 22:32:50 by vvarodi          ###   ########.fr       */
+/*   Updated: 2020/08/18 23:16:12 by vvarodi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char    *type_u(t_buffer *b, t_flags *f, unsigned int num, char *str)
 {
-    f->to_write = ft_putnbr_len(b, num);	
+    f->to_write = ft_putnbr_len(b,f, num);	
     if (f->b_left_aligned == 1 && f->b_zero_padding == 1)
 		f->b_zero_padding = 0;
     if ((f->b_preci == 1 || f->b_preci == 2) && f->precision >= f->to_write)

@@ -6,7 +6,7 @@
 /*   By: vvarodi <vvarodi@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/18 21:35:09 by vvarodi           #+#    #+#             */
-/*   Updated: 2020/08/18 22:47:56 by vvarodi          ###   ########.fr       */
+/*   Updated: 2020/08/18 23:15:03 by vvarodi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,27 +21,27 @@ void    ft_putnbr(t_buffer *b, t_flags *f, long n)
     add_to_buffer(b, f, n%10 + '0'); 
 } 
 
-int     ft_putnbr_len(t_buffer *b,long n) 
+int     ft_putnbr_len(t_buffer *b, t_flags *f,long n) 
 {
     if (n < 0) 
         n = -n; 
     if (n/10) 
 	{
-		b->num_len++;
-        ft_putnbr_len(b, n/10); 
+		f->num_len++;
+        ft_putnbr_len(b, f,n/10); 
 	}
-	return (b->num_len + 1);
+	return (f->num_len + 1);
 }
 
 void    ft_puthexa(t_buffer *b, t_flags *f, unsigned long x, char *type)
 {
 	if (x >= 16)
 		ft_puthexa(b, f, x / 16, type);
-	if (*type == 'p'  && b->only_once == 0)
+	if (*type == 'p'  && f->b_only_once == 0)
 	{
 		add_to_buffer(b, f, '0');
 		add_to_buffer(b, f, 'x');
-		b->only_once = 1;
+		f->b_only_once = 1;
 	}
     if (*type == 'x' || *type == 'p')
 	    add_to_buffer(b, f, "0123456789abcdef"[x & 15]);
@@ -49,12 +49,12 @@ void    ft_puthexa(t_buffer *b, t_flags *f, unsigned long x, char *type)
         add_to_buffer(b, f, "0123456789ABCDEF"[x & 15]);
 }
 
-int     ft_puthexa_len(t_buffer *b, unsigned long x)
+int     ft_puthexa_len(t_buffer *b,t_flags *f, unsigned long x)
 {
 	if (x >= 16)
 	{
-        b->num_len++;
-		ft_puthexa_len(b, x / 16);
+        f->num_len++;
+		ft_puthexa_len(b,f ,x / 16);
 	}
-    return (b->num_len + 1);
+    return (f->num_len + 1);
 }
