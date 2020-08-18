@@ -6,7 +6,7 @@
 /*   By: vvarodi <vvarodi@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 23:50:25 by vvarodi           #+#    #+#             */
-/*   Updated: 2020/08/19 00:32:33 by vvarodi          ###   ########.fr       */
+/*   Updated: 2020/08/19 01:40:28 by vvarodi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,11 @@ typedef struct	s_flags
 	int			b_left_aligned;
 	int			b_zero_padding;
 	int			b_only_once;
+	int			b_num_zero;
 	int			to_write;
 	int			num_len;
 	int			zeros;
+	int			negative;
 }				t_flags;
 
 int				ft_printf(const char *s, ...);
@@ -50,6 +52,8 @@ char			*type_p(t_buffer *b, t_flags *f, unsigned long int num,
 						char *str);
 char			*type_x(t_buffer *b, t_flags *f, unsigned int c,
 						char *str, char type);
+
+char	*conversion_helper(t_buffer *b, t_flags *f, char *str, char type);
 
 int				ft_putnbr_len(t_buffer *b, t_flags *f, long n);
 int				ft_puthexa_len(t_buffer *b, t_flags *f, unsigned long x);
