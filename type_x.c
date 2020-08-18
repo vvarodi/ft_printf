@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   type_xX.c                                          :+:      :+:    :+:   */
+/*   type_x.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vvarodi <vvarodi@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/18 00:00:58 by vvarodi           #+#    #+#             */
-/*   Updated: 2020/08/18 23:16:28 by vvarodi          ###   ########.fr       */
+/*   Updated: 2020/08/19 00:31:41 by vvarodi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char    *type_xX(t_buffer *b, t_flags *f, unsigned int c, char *str, char type)
+char    *type_x(t_buffer *b, t_flags *f, unsigned int c, char *str, char type)
 {
 	f->to_write = ft_puthexa_len(b,f, c);	
     if (f->b_left_aligned == 1 && f->b_zero_padding == 1)

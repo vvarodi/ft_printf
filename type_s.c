@@ -6,7 +6,7 @@
 /*   By: vvarodi <vvarodi@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 01:13:34 by vvarodi           #+#    #+#             */
-/*   Updated: 2020/08/18 23:17:44 by vvarodi          ###   ########.fr       */
+/*   Updated: 2020/08/19 00:30:12 by vvarodi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@ char	*type_s_left(t_buffer *b, t_flags *f, char *print, char *str)
 			add_to_buffer(b, f, *print++);
 	}
 	else
-	{	if (f->precision < 0)
+	{
+		if (f->precision < 0)
 		{
-			while (*print && f->precision++ < 0)  //case *.*s, 3, -6, s
-					add_to_buffer(b, f, *print++);
+			while (*print && f->precision++ < 0)
+				add_to_buffer(b, f, *print++);
 		}
 		while (*print && f->precision-- > 0)
 			add_to_buffer(b, f, *print++);
@@ -60,4 +61,3 @@ char	*type_s(t_buffer *b, t_flags *f, char *print, char *str)
 		add_to_buffer(b, f, *print++);
 	return (str);
 }
-
