@@ -6,7 +6,7 @@
 #    By: vvarodi <vvarodi@student.42madrid.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/13 22:15:55 by vvarodi           #+#    #+#              #
-#    Updated: 2020/08/15 20:25:37 by vvarodi          ###   ########.fr        #
+#    Updated: 2020/08/18 12:21:00 by vvarodi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS	= ft_printf.c read_format.c ft_printf_utils.c ft_buffer.c type_s.c \
-			type_c.c 
+			type_c.c
 
 OBJS	= ${SRCS:.c=.o}
 
