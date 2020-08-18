@@ -6,7 +6,7 @@
 /*   By: vvarodi <vvarodi@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/15 20:20:54 by vvarodi           #+#    #+#             */
-/*   Updated: 2020/08/18 12:22:03 by vvarodi          ###   ########.fr       */
+/*   Updated: 2020/08/18 22:35:08 by vvarodi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,16 @@ void	width_precision(t_buffer *b, t_flags *f, char *str, int *i)
 	if (str[*i] == '.')
 	{
 		(*i)++;
-		f->b_precision = 1;
 		if (str[*i] == '*')
 		{
+			f->b_preci = 1;
 			f->precision = va_arg(b->args, int);
 			(*i)++;
 		}
-		if (str[*i] == 's' || str[*i] == '0')
-			f->b_precision = 2;
+		if (((ft_is_type(str[*i]) || str[*i] == '0') && f->b_preci == 0) || (ft_is_type(str[*i]) || str[*i] == '0'))
+			f->b_preci = 2;
+		else
+			f->b_preci = 1;
 		while (str[*i] >= '0' && str[*i] <= '9')
 		{
 			f->precision = f->precision * 10 + str[*i] - '0';
@@ -94,7 +96,6 @@ char	*read_format(t_buffer *b, t_flags *f, char *str)
 		str = type_c(b, f, *str == 'c' ? va_arg(b->args, int) : '%', str) + 1;
 	else if (*str == 's')
 		str = type_s(b, f, va_arg(b->args, char *), str) + 1;
-	/*
 	else if (*str == 'd' || *str == 'i')
 		str = type_di(b, f, va_arg(b->args, int), str) + 1;
 	else if (*str == 'u')
@@ -103,6 +104,5 @@ char	*read_format(t_buffer *b, t_flags *f, char *str)
 		str = type_xX(b, f, va_arg(b->args, unsigned int), str, *str) + 1;
 	else if (*str == 'p')
 		str = type_p(b, f, va_arg(b->args, unsigned long int), str) + 1;
-	*/
 	return (str);
 }
