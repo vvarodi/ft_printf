@@ -6,7 +6,7 @@
 /*   By: vvarodi <vvarodi@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/15 20:20:54 by vvarodi           #+#    #+#             */
-/*   Updated: 2020/08/19 03:04:23 by vvarodi          ###   ########.fr       */
+/*   Updated: 2020/08/19 09:39:27 by vvarodi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ char	*read_format(t_buffer *b, t_flags *f, char *str)
 	else if (*str == 'u')
 		str = type_u(b, f, va_arg(b->args, unsigned int), str) + 1;
 	else if (*str == 'x' || *str == 'X')
-		str = type_x(b, f, va_arg(b->args, unsigned int), str, *str) + 1;
+		str = type_x(b, f, va_arg(b->args, unsigned int), str) + 1;
 	else if (*str == 'p')
 		str = type_p(b, f, va_arg(b->args, unsigned long int), str) + 1;
 	return (str);
