@@ -6,7 +6,7 @@
 /*   By: vvarodi <vvarodi@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 23:50:25 by vvarodi           #+#    #+#             */
-/*   Updated: 2020/08/19 01:40:28 by vvarodi          ###   ########.fr       */
+/*   Updated: 2020/08/19 03:04:53 by vvarodi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct	s_flags
 	int			b_preci;
 	int			b_left_aligned;
 	int			b_zero_padding;
-	int			b_only_once;
+	int			b_only_once;  // for 0x or minus
 	int			b_num_zero;
 	int			to_write;
 	int			num_len;
@@ -46,7 +46,8 @@ int				ft_printf(const char *s, ...);
 char			*type_c(t_buffer *b, t_flags *f, int c, char *str);
 char			*type_s(t_buffer *b, t_flags *f, char *print, char *str);
 char			*type_s_left(t_buffer *b, t_flags *f, char *print, char *str);
-char			*type_di(t_buffer *b, t_flags *f, int num, char *str);
+char			*type_di1(t_buffer *b, t_flags *f, int num, char *str);
+char			*type_di2(t_buffer *b, t_flags *f, int num, char *str);
 char			*type_u(t_buffer *b, t_flags *f, unsigned int num, char *str);
 char			*type_p(t_buffer *b, t_flags *f, unsigned long int num,
 						char *str);

@@ -6,7 +6,7 @@
 /*   By: vvarodi <vvarodi@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/15 20:20:54 by vvarodi           #+#    #+#             */
-/*   Updated: 2020/08/19 00:32:05 by vvarodi          ###   ########.fr       */
+/*   Updated: 2020/08/19 03:04:23 by vvarodi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ char	*read_format(t_buffer *b, t_flags *f, char *str)
 	else if (*str == 's')
 		str = type_s(b, f, va_arg(b->args, char *), str) + 1;
 	else if (*str == 'd' || *str == 'i')
-		str = type_di(b, f, va_arg(b->args, int), str) + 1;
+		str = type_di1(b, f, va_arg(b->args, int), str) + 1;
 	else if (*str == 'u')
 		str = type_u(b, f, va_arg(b->args, unsigned int), str) + 1;
 	else if (*str == 'x' || *str == 'X')
