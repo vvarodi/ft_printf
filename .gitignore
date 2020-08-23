@@ -1,8 +1,0 @@
-.gitignore
-pft/
-a.out
-main.c
-main_%.c
-main_c.c
-42_printf_unit_tests/
-test-printf/
